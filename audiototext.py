@@ -20,7 +20,7 @@ parser.add_argument("audio_file", nargs='+', help="source file to transcribe")
 parser.add_argument("--task", help="transcribe (default) or translate (to English)",
                     default="transcribe", choices=["transcribe", "translate"])
 parser.add_argument("--model", help="model to use (default: small)",
-                    default="small", choices=["tiny", "base", "small", "medium", "large-v1", "large-v2"])
+                    default="small", choices=["tiny", "base", "small", "medium", "large", "turbo"])
 parser.add_argument("--language", help="source file language (default: Auto-Detect)",
                     default="Auto-Detect", choices=["Auto-Detect", "Afrikaans", "Albanian", "Amharic", "Arabic", "Armenian", "Assamese", "Azerbaijani", "Bashkir", "Basque", "Belarusian", "Bengali", "Bosnian", "Breton", "Bulgarian", "Burmese", "Castilian", "Catalan", "Chinese", "Croatian", "Czech", "Danish", "Dutch", "English", "Estonian", "Faroese", "Finnish", "Flemish", "French", "Galician", "Georgian", "German", "Greek", "Gujarati", "Haitian", "Haitian Creole", "Hausa", "Hawaiian", "Hebrew", "Hindi", "Hungarian", "Icelandic", "Indonesian", "Italian", "Japanese", "Javanese", "Kannada", "Kazakh", "Khmer", "Korean", "Lao", "Latin", "Latvian", "Letzeburgesch", "Lingala", "Lithuanian", "Luxembourgish", "Macedonian", "Malagasy", "Malay", "Malayalam", "Maltese", "Maori", "Marathi", "Moldavian", "Moldovan", "Mongolian", "Myanmar", "Nepali", "Norwegian", "Nynorsk", "Occitan", "Panjabi", "Pashto", "Persian", "Polish", "Portuguese", "Punjabi", "Pushto", "Romanian", "Russian", "Sanskrit", "Serbian", "Shona", "Sindhi", "Sinhala", "Sinhalese", "Slovak", "Slovenian", "Somali", "Spanish", "Sundanese", "Swahili", "Swedish", "Tagalog", "Tajik", "Tamil", "Tatar", "Telugu", "Thai", "Tibetan", "Turkish", "Turkmen", "Ukrainian", "Urdu", "Uzbek", "Valencian", "Vietnamese", "Welsh", "Yiddish", "Yoruba"])
 parser.add_argument("--prompt", help="provide context about the audio or encourage a specific writing style, see https://platform.openai.com/docs/guides/speech-to-text/prompting")
@@ -64,7 +64,7 @@ elif not args.skip_install:
 
 if not args.skip_install:
   os.system("pip install --user --upgrade pip")
-  os.system("pip install git+https://github.com/openai/whisper.git@v20231117 openai==1.9.0 numpy scipy deepl pydub cohere ffmpeg-python torch==2.1.0 tensorflow-probability==0.23.0 typing-extensions==4.9.0")
+  os.system("!pip install --root-user-action=ignore git+https://github.com/openai/whisper.git@v20250625 openai~=2.43.0 numpy~=2.0.2 scipy~=1.16.3 deepl~=1.30.0 pydub~=0.25.1 cohere~=7.0.4 ffmpeg-python~=0.2.0 torch~=2.11.0 tensorflow-probability~=0.25.0 typing-extensions~=4.15.0")
   print()
 
 """## [Step 2] 📁 Upload your audio files to this folder
@@ -98,7 +98,7 @@ You may try to choose the _Transcribe_ task and set your desired --language, but
 
   By default the open-source models are used, but you can also use the OpenAI API if the --api_key parameter is set with your [OpenAI API Key](https://platform.openai.com/account/api-keys), which can improve the inference speed substantially, but it has an associated cost, see [API pricing](https://openai.com/pricing#audio-models).
   
-  When using API some options are fixed: --model is ignored (uses large-v2) and --coherence_preference is ignored (uses More coherence).
+  When using API some options are fixed: --model is ignored (uses large) and --coherence_preference is ignored (uses More coherence).
   
   More parameters are available in the code `options` object.
 """
