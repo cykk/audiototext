@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "audiototext"
+version = "0.1.0"
+description = "CLI for audio transcription, subtitle export, and optional translation."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+  { name = "audiototext contributors" }
+]
+dependencies = [
+  "openai>=1.35.0",
+  "openai-whisper",
+  "numpy",
+  "torch",
+  "deepl>=1.18.0",
+]
+
+[project.optional-dependencies]
+openai = [
+  "pydub>=0.25.1",
+]
+test = [
+  "pytest>=8.0",
+]
+
+[project.scripts]
+audiototext = "audiototext.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
