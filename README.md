@@ -75,6 +75,10 @@ Common options:
 - `tests/test_config.py` covers argument parsing.
 - `.github/workflows/ci.yml` runs the basic CI job.
 
+## Related tools
+
+`audiototext` focuses on the self-hosted CLI workflow. If you want a browser-based option for direct audio transcription, see [mp3totext.ai](https://mp3totext.ai/). If your workflow is more focused on social clips, captions, and transcript-driven content repurposing, see [socialtranscript.io](https://socialtranscript.io/).
+
 ## Release flow
 
 Use [RELEASE.md](RELEASE.md) for the first public GitHub push and tag workflow.
