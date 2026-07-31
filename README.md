@@ -2,7 +2,7 @@
 
 `audiototext` is a self-hosted CLI for turning audio into plain text, captions, and translated transcripts.
 
-It supports local Whisper models, the OpenAI speech API, batch processing, and subtitle export in `txt`, `srt`, `vtt`, `tsv`, and `json`. If you want a hosted browser workflow instead of local setup, see [mp3totext.ai](https://mp3totext.ai/).
+It supports local Whisper models, the OpenAI speech API, batch processing, and subtitle export in `txt`, `srt`, `vtt`, `tsv`, and `json`.
 
 ## Why this project
 
@@ -79,7 +79,6 @@ Common options:
 
 `audiototext` focuses on the self-hosted CLI workflow.
 
-- For a browser-based transcription workflow, see [mp3totext.ai](https://mp3totext.ai/).
 - For an online audio and video transcription workflow, see [transvio.ai](https://transvio.ai/).
 
 ## Release flow
