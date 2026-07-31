@@ -1,52 +1,56 @@
 # audiototext
 
-`audiototext` is a self-hosted CLI for turning audio into plain text, captions, and translated transcripts.
+`audiototext` is an open-source Python command-line tool for converting audio into plain text, subtitles, and translated transcripts.
 
-It supports local Whisper models, the OpenAI speech API, batch processing, and subtitle export in `txt`, `srt`, `vtt`, `tsv`, and `json`.
+It supports local Whisper models, the OpenAI speech API, batch processing, and transcript export in `txt`, `srt`, `vtt`, `tsv`, and `json`.
 
-## Why this project
+## Features
 
-- Transcribe MP3, WAV, M4A, MP4, and other ffmpeg-readable formats.
-- Choose between local inference and the OpenAI API.
-- Export readable transcripts or subtitle files for players and editors.
-- Translate finished transcripts with DeepL when needed.
-- Process one file or many files with the same command.
+- Transcribe MP3, WAV, M4A, MP4, and other ffmpeg-compatible formats
+- Choose between local inference and cloud API transcription
+- Export transcripts as plain text or subtitle files
+- Process one file or multiple files in a single command
+- Optionally translate transcripts with DeepL
 
-## Quick start
-
-Requirements:
+## Requirements
 
 - Python `3.11+`
-- `ffmpeg` on your `PATH`
+- `ffmpeg` available on your `PATH`
 
-Install:
+This project works on Windows, macOS, and Linux where Python and ffmpeg are installed.
+
+## Installation
+
+Install from source:
 
 ```bash
 pip install -e .
 ```
 
-Optional extras:
+Install with optional extras:
 
 ```bash
 pip install -e .[openai,test]
 ```
 
-Run a local transcription:
+## Quick start
+
+Transcribe a local audio file:
 
 ```bash
 audiototext recordings/interview.mp3 --model small --output-formats txt,srt
 ```
 
-Run with the OpenAI speech API:
+Use the OpenAI speech API:
 
 ```bash
 audiototext recordings/interview.mp3 --api-key $OPENAI_API_KEY --output-formats txt,vtt
 ```
 
-Translate the result with DeepL:
+Translate the transcript with DeepL:
 
 ```bash
-audiototext recordings/interview.mp3 \ 
+audiototext recordings/interview.mp3 \
   --output-formats txt,srt \
   --deepl-api-key $DEEPL_API_KEY \
   --deepl-target-language Spanish
@@ -63,39 +67,45 @@ Common options:
 - `--task transcribe|translate`
 - `--model tiny|base|small|medium|large-v2|turbo`
 - `--language Auto-Detect|English|French|...`
-- `--api-key ...` to use the OpenAI speech API
+- `--api-key ...`
 - `--output-formats txt,vtt,srt,tsv,json`
 - `--output-dir audio_transcription`
 - `--deepl-api-key ...`
 - `--deepl-target-language Spanish`
 
-## Project layout
+## Output formats
 
-- `src/audiototext` contains the package code.
-- `tests/test_config.py` covers argument parsing.
-- `.github/workflows/ci.yml` runs the basic CI job.
+`audiototext` can generate:
 
-## Related tools
+- `txt` for readable transcripts
+- `srt` for subtitle workflows
+- `vtt` for web and media subtitle support
+- `tsv` for timestamped tabular output
+- `json` for structured downstream processing
 
-`audiototext` focuses on the self-hosted CLI workflow.
+## Project structure
 
-- For an online audio and video transcription workflow, see [transvio.ai](https://transvio.ai/).
-
-## Release flow
-
-Use [RELEASE.md](RELEASE.md) for the first public GitHub push and tag workflow.
+- `src/audiototext` contains the application code
+- `tests/` contains automated tests
+- `.github/workflows/` contains CI configuration
 
 ## Notes
 
-- Large local Whisper models can be slow on CPU-only machines.
-- Large OpenAI API files are converted and chunked automatically when needed.
-- Avoid passing production API keys directly in shared shell history. Environment variables are safer.
-- Keep example media files small and clearly licensed before publishing this repository.
+- Large local Whisper models may be slow on CPU-only systems
+- Large API files are automatically converted and chunked when needed
+- API keys are better provided through environment variables than shell history
+- Example media files should be clearly licensed before redistribution
 
-## Publish checklist
+## License
 
-- Set your Git remote to your own GitHub repository.
-- Review the license and author metadata in `LICENSE`.
-- Replace placeholder example content with files you have rights to distribute.
-- Run `pytest`.
-- Tag the first release after the README and package metadata match your public repo.
+This project is released under the MIT License. See `LICENSE` for details.
+
+## Source code and releases
+
+Use this project page for source distribution and release files.
+
+If you are looking for packaged Python distribution files, check the published release artifacts or the related Python package distribution maintained for this project.
+
+## Related resources
+
+If you prefer an online audio and video transcription workflow instead of a self-hosted CLI, see [transvio.ai](https://transvio.ai/).
