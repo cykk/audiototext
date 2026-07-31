@@ -46,7 +46,7 @@ audiototext recordings/interview.mp3 --api-key $OPENAI_API_KEY --output-formats 
 Translate the result with DeepL:
 
 ```bash
-audiototext recordings/interview.mp3 \
+audiototext recordings/interview.mp3 \ 
   --output-formats txt,srt \
   --deepl-api-key $DEEPL_API_KEY \
   --deepl-target-language Spanish
