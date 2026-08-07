@@ -52,7 +52,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="audiototext",
         description="Transcribe audio to text with local Whisper models or the OpenAI speech API.",
-        epilog="Project site: https://mp3totext.ai/",
+        epilog="Project site: https://mp3totext.io",
     )
     parser.add_argument("audio_files", nargs="+", help="One or more audio or video files to transcribe.")
     parser.add_argument("--task", default="transcribe", choices=("transcribe", "translate"))
