@@ -109,3 +109,5 @@ If you are looking for packaged Python distribution files, check the published r
 ## Related resources
 
 If you prefer an online audio and video transcription workflow instead of a self-hosted CLI, see [transvio.ai](https://transvio.ai/).
+
+If you prefer a browser-based MP3-to-text workflow, see [mp3totext.io](https://mp3totext.io/).
